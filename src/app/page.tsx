@@ -157,7 +157,7 @@ const PortfolioWebsite = () => {
               className="grid grid-cols-2 md:grid-cols-3 gap-4"
               variants={staggerChildren}
             >
-              {['Service client', 'Flexibilité', 'Travail d&apos;équipe', 'Sécurité aérienne', 'Gestion de cabine'].map((skill) => (
+              {['Service client', 'Flexibilité', 'Travail déquipe', 'Sécurité aérienne', 'Gestion de cabine'].map((skill) => (
                 <motion.li
                   key={skill}
                   className="bg-gray-100 dark:bg-gray-800 p-3 rounded-lg text-center shadow-md"
