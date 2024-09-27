@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Sun, Moon, Phone, Mail, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const PortfolioWebsite = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -30,7 +31,10 @@ const PortfolioWebsite = () => {
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
+  };
+
+  const fadeInUpTransition = {
+    duration: 0.6
   };
 
   const staggerChildren = {
@@ -46,7 +50,7 @@ const PortfolioWebsite = () => {
     transition: {
       duration: 2,
       repeat: Infinity,
-      repeatType: "reverse"
+      repeatType: "reverse" as const
     }
   };
 
@@ -89,16 +93,18 @@ const PortfolioWebsite = () => {
             className="mb-12 flex flex-col md:flex-row items-center gap-8"
             initial={fadeInUp.initial}
             animate={fadeInUp.animate}
-            transition={fadeInUp.transition}
+            transition={fadeInUpTransition}
           >
             <motion.div
               className="w-48 h-48 rounded-full overflow-hidden shadow-lg"
               whileHover={{ scale: 1.1, rotate: 360 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              <img
+              <Image
                 src="/assets/photo1.png"
                 alt="ZAKARYAE BEN TALEB"
+                width={192}
+                height={192}
                 className="w-full h-full object-cover"
               />
             </motion.div>
@@ -118,7 +124,7 @@ const PortfolioWebsite = () => {
             className="mb-12"
             initial={fadeInUp.initial}
             animate={fadeInUp.animate}
-            transition={fadeInUp.transition}
+            transition={fadeInUpTransition}
           >
             <h2 className="text-2xl font-semibold mb-4">Contact</h2>
             <motion.div className="space-y-2" variants={staggerChildren}>
@@ -131,6 +137,7 @@ const PortfolioWebsite = () => {
                   key={text}
                   className="flex items-center"
                   variants={fadeInUp}
+                  transition={fadeInUpTransition}
                   whileHover={{ scale: 1.05, x: 10 }}
                 >
                   <Icon className="mr-2 h-5 w-5" /> {text}
@@ -143,7 +150,7 @@ const PortfolioWebsite = () => {
             className="mb-12"
             initial={fadeInUp.initial}
             animate={fadeInUp.animate}
-            transition={fadeInUp.transition}
+            transition={fadeInUpTransition}
           >
             <h2 className="text-2xl font-semibold mb-4">Compétences</h2>
             <motion.ul
@@ -155,6 +162,7 @@ const PortfolioWebsite = () => {
                   key={skill}
                   className="bg-gray-100 dark:bg-gray-800 p-3 rounded-lg text-center shadow-md"
                   variants={fadeInUp}
+                  transition={fadeInUpTransition}
                   whileHover={{ scale: 1.05, rotate: 5 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -168,7 +176,7 @@ const PortfolioWebsite = () => {
             className="mb-12"
             initial={fadeInUp.initial}
             animate={fadeInUp.animate}
-            transition={fadeInUp.transition}
+            transition={fadeInUpTransition}
           >
             <h2 className="text-2xl font-semibold mb-4">Expérience Professionnelle</h2>
             <motion.div
@@ -176,7 +184,7 @@ const PortfolioWebsite = () => {
               variants={staggerChildren}
             >
               {[
-                                {
+                {
                   title: "Catering and Reception - Across Hotel FES",
                   date: "2022",
                   description: "Accueil des clients et gestion des services de restauration."
@@ -186,12 +194,12 @@ const PortfolioWebsite = () => {
                   date: "2021",
                   description: "Gestion des réclamations de bagages et assistance aux passagers."
                 }
-
               ].map((job) => (
                 <motion.div
                   key={job.title}
                   className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg"
                   variants={fadeInUp}
+                  transition={fadeInUpTransition}
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -207,7 +215,7 @@ const PortfolioWebsite = () => {
             className="mb-12"
             initial={fadeInUp.initial}
             animate={fadeInUp.animate}
-            transition={fadeInUp.transition}
+            transition={fadeInUpTransition}
           >
             <h2 className="text-2xl font-semibold mb-4">Education</h2>
             <motion.div
@@ -230,6 +238,7 @@ const PortfolioWebsite = () => {
                   key={edu.school}
                   className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg"
                   variants={fadeInUp}
+                  transition={fadeInUpTransition}
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -245,7 +254,7 @@ const PortfolioWebsite = () => {
             className="mb-12"
             initial={fadeInUp.initial}
             animate={fadeInUp.animate}
-            transition={fadeInUp.transition}
+            transition={fadeInUpTransition}
           >
             <h2 className="text-2xl font-semibold mb-4">Langues</h2>
             <motion.ul
@@ -257,6 +266,7 @@ const PortfolioWebsite = () => {
                   key={language}
                   className="bg-blue-100 dark:bg-blue-900 px-4 py-2 rounded-full text-blue-800 dark:text-blue-100"
                   variants={fadeInUp}
+                  transition={fadeInUpTransition}
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   whileTap={{ scale: 0.9 }}
                 >
@@ -269,7 +279,7 @@ const PortfolioWebsite = () => {
           <motion.section
             initial={fadeInUp.initial}
             animate={fadeInUp.animate}
-            transition={fadeInUp.transition}
+            transition={fadeInUpTransition}
           >
             <h2 className="text-2xl font-semibold mb-4">Hobbies</h2>
             <motion.ul
@@ -281,6 +291,7 @@ const PortfolioWebsite = () => {
                   key={hobby}
                   className="bg-purple-100 dark:bg-purple-900 px-4 py-2 rounded-full text-purple-800 dark:text-purple-100"
                   variants={fadeInUp}
+                  transition={fadeInUpTransition}
                   whileHover={{ scale: 1.1, rotate: -5 }}
                   whileTap={{ scale: 0.9 }}
                 >
